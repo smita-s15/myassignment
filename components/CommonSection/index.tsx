@@ -6,12 +6,21 @@ import Sidenav from "@/components/sidenav";
 import styles from "./common.module.scss";
 import Link from "next/link";
 
+
+interface chatPerson {
+  name: string;
+  profilepicture?: string;
+}
+
+
+
 function CommonSection({ isProfile = false, pagetitle = "" }: any) {
   const [showuser, setShowUsers] = useState<boolean>(false);
   const [dropdowm, setDropdown] = useState<boolean>(false);
 
   const userState = useSelector((state: RootState) => state.users);
   const { user } = useSelector((state: RootState) => state.users);
+  const chatUsers: chatPerson[] = userState.data;
 
   const defaultLatitude = 0;
   const defaultLongitude = 0;
@@ -84,16 +93,15 @@ function CommonSection({ isProfile = false, pagetitle = "" }: any) {
             </div>
             {showuser && (
               <div className={styles.bottomsection}>
-                {userState.data.map((user, key) => (
+                {chatUsers.map((item, key) => (
                   <div className={styles.user_wrapper} key={key}>
                     <div>
-                      <img src={user?.profilepicture || "/User.svg"} alt="" />
+                      <img src={item.profilepicture || "/User.svg"} alt="" />
                     </div>
-                    <div>{user?.name}</div>
+                    <div>{item.name}</div>
                     <div
-                      className={`item ${
-                        key % 2 === 0 ? styles.online_user : styles.offline_user
-                      }`}
+                      className={`item ${key % 2 === 0 ? styles.online_user : styles.offline_user
+                        }`}
                     />
                   </div>
                 ))}
