@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Adobe Clean";
+  src: url("../font/adobe-clean/AdobeCleanRegular.otf");
+  format: ("otf");
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: "Adobe Clean";
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.font_1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #545454;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
+.font_2 {
+  font-size: 17px;
+  color: #9a9a9a;
+  line-height: 30px;
+}
+
+.font_3 {
+  font-size: 18px;
+  color: #242424;
+}
